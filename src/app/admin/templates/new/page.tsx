@@ -21,7 +21,8 @@ export default function NewTemplate() {
     font_style: "Playfair Display",
     is_premium: false,
     is_featured: false,
-    is_trending: false
+    is_trending: false,
+    layout_type: "classic"
   });
   const [imageFile, setImageFile] = useState<File | null>(null);
 
@@ -68,6 +69,7 @@ export default function NewTemplate() {
         is_premium: formData.is_premium,
         is_featured: formData.is_featured,
         is_trending: formData.is_trending,
+        layout_type: formData.layout_type,
         image_url,
         preview_image_url: image_url // Mock for now
       });
@@ -127,6 +129,17 @@ export default function NewTemplate() {
           <div>
             <label className="block text-sm font-medium text-stone-700 mb-1">Font Style</label>
             <input required type="text" value={formData.font_style} onChange={e => setFormData({...formData, font_style: e.target.value})} className="w-full px-4 py-2 border border-stone-200 rounded-xl focus:ring-2 focus:ring-gold-500 outline-none" placeholder="e.g. Playfair Display" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-stone-700 mb-1">Layout Style</label>
+            <select required value={formData.layout_type} onChange={e => setFormData({...formData, layout_type: e.target.value})} className="w-full px-4 py-2 border border-stone-200 rounded-xl focus:ring-2 focus:ring-gold-500 outline-none bg-white">
+              <option value="classic">Classic Luxe</option>
+              <option value="split_minimal">Split Minimal</option>
+              <option value="gold_foil">Gold Foil</option>
+              <option value="ripped_paper">Ripped Paper</option>
+              <option value="collage">Artistic Collage</option>
+              <option value="floral_border">Floral Border</option>
+            </select>
           </div>
         </div>
 

@@ -44,7 +44,7 @@ categories.forEach((cat, i) => {
   sql += `  (${uuid}, '${cat.name}', '${cat.slug}', '${cat.icon}')${i === categories.length - 1 ? ';' : ','}\n`;
 });
 
-const layouts = ['collage', 'ripped_paper', 'split_minimal', 'classic'];
+const layouts = ['collage', 'ripped_paper', 'split_minimal', 'classic', 'floral_border', 'gold_foil'];
 
 sql += `\n-- Insert Templates\nINSERT INTO public.templates (title, description, price, category_id, image_url, preview_image_url, theme_colors, font_style, features, is_trending, is_premium, is_featured, layout_type, layout_config) VALUES\n`;
 
@@ -52,10 +52,10 @@ const templates = [];
 
 categories.forEach(cat => {
   for (let i = 1; i <= 20; i++) {
-    const style = cat.styles[Math.floor(Math.random() * cat.styles.length)];
-    const title = `${cat.name} - ${style} Edition ${i}`;
+    const style = cat.styles[i % cat.styles.length];
+    const title = `${cat.name} - ${style} ${i}`;
     const desc = `A premium ${style.toLowerCase()} design perfectly suited for your ${cat.name.toLowerCase()} celebration.`;
-    const price = Math.floor(Math.random() * (4000 - 1000 + 1) + 1000);
+    const price = Math.floor(Math.random() * (350 - 220 + 1) + 220);
     const catId = categoryUUIDs[cat.slug];
     const imgMap = {
       'christian-wedding': '/christian.png',

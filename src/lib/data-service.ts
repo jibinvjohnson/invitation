@@ -15,16 +15,21 @@ const CATEGORIES = [
 const generateMockTemplates = () => {
   const templates: any[] = [];
   const styles = [
-    { title: "Royal Elegance", desc: "A timeless masterpiece of luxury." },
-    { title: "Minimalist Charm", desc: "Clean lines and sophisticated style." },
-    { title: "Golden Vows", desc: "Rich gold accents for a grand celebration." },
-    { title: "Vintage Romance", desc: "Classic beauty with a modern twist." },
-    { title: "Cinematic Story", desc: "Capture your journey in every detail." }
+    { title: "Royal Elegance", desc: "A timeless masterpiece of luxury.", layout: "classic" },
+    { title: "Minimalist Charm", desc: "Clean lines and sophisticated style.", layout: "split_minimal" },
+    { title: "Golden Vows", desc: "Rich gold accents for a grand celebration.", layout: "gold_foil" },
+    { title: "Vintage Romance", desc: "Classic beauty with a modern twist.", layout: "ripped_paper" },
+    { title: "Cinematic Story", desc: "Capture your journey in every detail.", layout: "collage" },
+    { title: "Modern Grace", desc: "Elegant and stylish for any occasion.", layout: "floral_border" }
   ];
 
   CATEGORIES.forEach(cat => {
     for (let i = 1; i <= 20; i++) {
       const style = styles[i % styles.length];
+      const title = `${cat.name} - ${style.title} ${i}`;
+      // Price range 220-350
+      const price = Math.floor(Math.random() * (350 - 220 + 1) + 220);
+      
       const imgMap: any = {
         'christian-wedding': '/christian.png',
         'hindu-wedding': '/hindu.png',
@@ -35,14 +40,15 @@ const generateMockTemplates = () => {
       
       templates.push({
         id: `${cat.id}-${i}`,
-        title: `${cat.name} - ${style.title} ${i}`,
+        title: title,
         description: style.desc,
-        price: 1500 + (i * 100),
+        price: price,
         category_id: cat.id,
         image_url: imgMap[cat.slug] || '/hero.png',
         is_trending: i <= 5,
         is_featured: i === 1,
         is_premium: i % 3 === 0,
+        layout_type: style.layout,
         categories: { name: cat.name },
         created_at: new Date().toISOString()
       });

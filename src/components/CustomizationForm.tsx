@@ -120,6 +120,28 @@ export default function CustomizationForm({ template, user, formData, handleChan
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
+            <label className="block text-sm font-medium text-stone-700 mb-1">Typography Style</label>
+            <select name="fontStyle" value={formData.fontStyle || "Serif"} onChange={handleChange} className="w-full px-4 py-2 border border-stone-200 rounded-xl focus:ring-2 focus:ring-gold-500 outline-none">
+              <option>Classic Serif</option>
+              <option>Modern Minimal</option>
+              <option>Elegant Script</option>
+              <option>Bold Sans</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-stone-700 mb-1">Color Theme</label>
+            <select name="colorTheme" value={formData.colorTheme || "Gold & White"} onChange={handleChange} className="w-full px-4 py-2 border border-stone-200 rounded-xl focus:ring-2 focus:ring-gold-500 outline-none">
+              <option>Gold & White</option>
+              <option>Royal Red & Gold</option>
+              <option>Midnight & Silver</option>
+              <option>Pastel Rose</option>
+              <option>Emerald & Gold</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
             <label className="block text-sm font-medium text-stone-700 mb-1">Language</label>
             <select name="language" value={formData.language} onChange={handleChange} className="w-full px-4 py-2 border border-stone-200 rounded-xl focus:ring-2 focus:ring-gold-500 outline-none">
               <option>English</option>

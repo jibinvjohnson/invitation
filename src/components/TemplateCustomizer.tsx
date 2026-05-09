@@ -19,6 +19,8 @@ export default function TemplateCustomizer({ template, user }: Props) {
     language: "English",
     musicRequirements: "",
     customMessage: "We invite you to share our joy as we celebrate our union.",
+    fontStyle: "Classic Serif",
+    colorTheme: "Gold & White",
   });
 
   const handleChange = (e: any) => {

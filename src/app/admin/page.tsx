@@ -13,21 +13,28 @@ export default async function AdminDashboard() {
     .order("created_at", { ascending: false })
     .limit(5);
 
+  const { data: revenueData } = await supabase.from("orders").select("amount");
+  const totalRevenue = revenueData?.reduce((acc, curr) => acc + curr.amount, 0) || 0;
+
   return (
     <div>
       <h1 className="text-3xl font-serif font-bold text-stone-900 mb-8">Dashboard Overview</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
         <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
           <p className="text-stone-500 text-sm font-medium mb-2">Total Orders</p>
           <p className="text-3xl font-bold text-stone-900">{orderCount || 0}</p>
         </div>
         <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
-          <p className="text-stone-500 text-sm font-medium mb-2">Total Templates</p>
+          <p className="text-stone-500 text-sm font-medium mb-2">Total Revenue</p>
+          <p className="text-3xl font-bold text-gold-600">₹{totalRevenue}</p>
+        </div>
+        <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+          <p className="text-stone-500 text-sm font-medium mb-2">Templates</p>
           <p className="text-3xl font-bold text-stone-900">{templateCount || 0}</p>
         </div>
         <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
-          <p className="text-stone-500 text-sm font-medium mb-2">Total Customers</p>
+          <p className="text-stone-500 text-sm font-medium mb-2">Customers</p>
           <p className="text-3xl font-bold text-stone-900">{userCount || 0}</p>
         </div>
       </div>
