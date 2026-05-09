@@ -28,9 +28,9 @@ export default function TemplateCustomizer({ template, user }: Props) {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
       {/* Live Preview Panel */}
-      <div className="sticky top-24 h-[calc(100vh-8rem)]">
+      <div className="lg:sticky lg:top-24 lg:h-[calc(100vh-8rem)] mb-12 lg:mb-0">
         <LivePreview template={template} formData={formData} />
       </div>
 

@@ -60,11 +60,11 @@ categories.forEach(cat => {
     const imgMap = {
       'christian-wedding': '/christian.png',
       'hindu-wedding': '/hindu.png',
-      'muslim-wedding': '/christian.png', // fallback
+      'muslim-wedding': '/christian.png',
       'baptism': '/baptism.png',
       'birthday': '/birthday.png',
       'engagement': '/engagement.png',
-      'save-the-date': '/christian.png',
+      'save-the-date': '/engagement.png',
       'anniversary': '/birthday.png',
       'baby-shower': '/baptism.png',
       'housewarming': '/hero.png'

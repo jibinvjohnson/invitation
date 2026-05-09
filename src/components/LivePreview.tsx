@@ -36,7 +36,7 @@ export default function LivePreview({ template, formData }: Props) {
   };
 
   return (
-    <div className={`w-full h-full transition-all duration-500 mx-auto ${previewMode === 'mobile' ? 'max-w-[375px]' : 'max-w-full'}`}>
+    <div className="w-full h-full">
       <div className="flex justify-center gap-4 mb-6">
         <button 
           onClick={() => setPreviewMode('mobile')}
@@ -52,9 +52,13 @@ export default function LivePreview({ template, formData }: Props) {
         </button>
       </div>
 
-      <div className={`relative aspect-[9/19] rounded-[3.5rem] overflow-hidden shadow-2xl bg-white border-[12px] border-stone-900 group`}>
-        {/* Phone Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-stone-900 rounded-b-2xl z-50"></div>
+      <div className={`relative transition-all duration-700 
+        ${previewMode === 'mobile' ? 'aspect-[9/19] max-w-[375px]' : 'aspect-video max-w-full'}
+        mx-auto rounded-[2rem] lg:rounded-[3.5rem] overflow-hidden shadow-2xl bg-white 
+        border-4 lg:border-[12px] border-stone-900 group`}>
+        
+        {/* Phone Notch - Hidden on very small screens or if not in mobile mode */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 lg:w-32 h-4 lg:h-6 bg-stone-900 rounded-b-2xl z-50"></div>
         
         <div className="w-full h-full overflow-y-auto scrollbar-hide bg-stone-50 relative">
           {/* Paper Texture Overlay */}

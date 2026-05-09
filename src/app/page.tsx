@@ -123,10 +123,10 @@ export default function Home() {
                 <motion.div variants={fadeIn} className="inline-block mb-4 px-4 py-1.5 rounded-full border border-gold-200 bg-gold-50/50 text-gold-700 text-sm font-medium tracking-wide">
                   ✨ The New Standard in Digital Invites
                 </motion.div>
-                <motion.h1 variants={fadeIn} className="text-5xl lg:text-7xl font-serif font-bold text-stone-900 leading-[1.1] mb-6">
+                <motion.h1 variants={fadeIn} className="text-4xl sm:text-5xl lg:text-7xl font-serif font-bold text-stone-900 leading-[1.1] mb-6">
                   Set the perfect tone for your <span className="gold-gradient-text italic">special day</span>
                 </motion.h1>
-                <motion.p variants={fadeIn} className="text-lg lg:text-xl text-stone-600 mb-8 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                <motion.p variants={fadeIn} className="text-base sm:text-lg lg:text-xl text-stone-600 mb-8 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
                   Design, send, and track stunning digital invitations that feel as premium as paper. Beautifully crafted for life's most important moments.
                 </motion.p>
                 <motion.div variants={fadeIn} className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
